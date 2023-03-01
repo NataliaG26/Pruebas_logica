@@ -1,0 +1,32 @@
+MergeSort(a[]){
+
+	return DivMergeSort(a, 0, a.lenth-1)
+}
+
+DivMergeSort(a[], init, final){
+
+	if(init < final){
+		pos = (init + final)/2
+		left = DivMergeSort(a, init, pos)
+		rigth = DivMergeSort(a, pos+1, final)
+		
+		c = new array[left.length + rigth.length]
+		posL = 0
+		posR = 0
+		for(i = 0; i < c.length; i++) {
+			if(left[posL] < rigth[posR]){
+				c[i] = left[posL]
+				posL++
+			}else{
+				c[i] = rigth[posR]
+				posR++
+			}
+		}
+		
+		return c
+		
+	}else{
+		return a[init]
+	}
+
+}
